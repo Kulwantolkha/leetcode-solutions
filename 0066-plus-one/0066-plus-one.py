@@ -7,6 +7,7 @@ class Solution:
         num+=1
         lst=[]
         st=str(num)
-        for i in st:
-            lst.append(int(i))
-        return lst
+        # for i in st:
+            # lst.append(int(i))
+        # return lst
+        return [int(i) for i in st]
