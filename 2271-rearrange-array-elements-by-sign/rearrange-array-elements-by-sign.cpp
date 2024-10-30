@@ -11,11 +11,10 @@ public:
                 negative.push_back(nums[i]);
             }
         }
-        vector<int> nums1;
         for(int i=0;i<nums.size()/2;i++){
-            nums1.push_back(positive[i]);
-            nums1.push_back(negative[i]);
+            nums[2*i] = positive[i];
+            nums[2*i+1] = negative[i];
         }
-        return nums1;
+        return nums;
     }
 };
