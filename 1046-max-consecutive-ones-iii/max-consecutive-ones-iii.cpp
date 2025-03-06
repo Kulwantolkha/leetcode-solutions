@@ -9,8 +9,8 @@ public:
             if(nums[right]==0){
                 numofZeros++;
             }
-            while(numofZeros>k){
-                if(nums[left]==0)   numofZeros--;   
+            if(numofZeros>k){
+                if(nums[left]==0)   numofZeros--;
                 left++;
             }
             if(numofZeros<=k){
