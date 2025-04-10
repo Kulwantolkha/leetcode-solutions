@@ -13,21 +13,18 @@ class Solution {
 public:
     void flatten(TreeNode* root) {
         if(!root)   return;
-        stack<TreeNode*> st;
-        st.push(root);
-        while(!st.empty()){
-            TreeNode* curr = st.top();
-            st.pop();
-            if(curr->right){
-                st.push(curr->right);
+        TreeNode* curr = root;
+        while(curr){
+            if(curr->left!=nullptr){
+                TreeNode* prev = curr->left;
+                while(prev->right){
+                    prev = prev->right;
+                }
+                prev->right = curr->right;
+                curr->right = curr->left;
+                curr->left = nullptr;
             }
-            if(curr->left){
-                st.push(curr->left);
-            }
-            if(!st.empty()){
-                curr->right=st.top();
-            }
-            curr->left = nullptr;
+            curr = curr->right;
         }
     }
 };
