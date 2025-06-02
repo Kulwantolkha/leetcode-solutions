@@ -30,14 +30,14 @@ public:
     int candy(vector<int>& ratings) {
         if(ratings.size()==0)   return 0;
         vector<int> st(ratings.size(),0);
-        int ans = 0;
+        // int ans = 0;
         vector<int> st1 = leftnei(ratings);
         vector<int> st2 = rightnei(ratings);
         for(int i=0;i<ratings.size();i++){
             if(st1[i]>st2[i])   st[i] = st1[i];
             else    st[i] = st2[i];
         }
-        ans = accumulate(st.begin(),st.end(),0);
+        int ans = accumulate(st.begin(),st.end(),0);
         return ans;
     }
 };
