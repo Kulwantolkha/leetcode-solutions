@@ -6,17 +6,13 @@ public:
         for(int i:nums){
             totalSum += i;
         }
-        cout<<totalSum<<endl;
         int lSum = 0;
         for(int i=0;i<nums.size();i++){
-            if(i>0){
-                lSum += nums[i-1];
-            }
             totalSum -= nums[i];
-            cout<<i<<"->"<<lSum<<"||"<<totalSum<<endl;
             if(lSum==totalSum){
                 return i;
             }
+            lSum += nums[i];
         }
         return -1;
     }
