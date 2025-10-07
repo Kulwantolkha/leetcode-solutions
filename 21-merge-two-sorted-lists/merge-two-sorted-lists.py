@@ -15,11 +15,27 @@ class Solution(object):
         if not list2:
             return list1
 
-        if list1.val <= list2.val:
-            list1.next = self.mergeTwoLists(list1.next, list2)
-            return list1
+        dummyNode = list1
+        if (list1.val > list2.val):
+            dummyNode = list2
+            list2 = list2.next
         else:
-            list2.next = self.mergeTwoLists(list1, list2.next)
-            return list2
+            list1 = list1.next
+        curr = dummyNode
+
+        while list1 and list2:
+            if(list1.val > list2.val):
+                dummyNode.next = list2
+                list2 = list2.next
+            else:
+                dummyNode.next = list1
+                list1 = list1.next
+            
+            dummyNode = dummyNode.next
         
+        if list1:
+            dummyNode.next = list1
+        if list2:
+            dummyNode.next = list2
+        return curr
         
